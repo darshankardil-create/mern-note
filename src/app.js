@@ -21,8 +21,8 @@ const PORT = process.env.NEXT_PORT || 3000;
 
 
   app.use(
-    cors({
-      origin:["http://localhost:3001","http://192.168.1.8:3001"]
+    cors({                                                   
+      origin:["http://localhost:3001","http://192.168.1.8:3001","https://darshankardil-create.github.io/mern_note_frontend/"]
 
       // file:///Users/sanjaykardile/Downloads/Cors%20Cookies%20Summary.pdf //open in browser
     })
