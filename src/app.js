@@ -22,7 +22,7 @@ const PORT = process.env.NEXT_PORT || 3000;
 
   app.use(
     cors({                                                   
-      origin:["http://localhost:3001","https://darshankardil-create.github.io/mern_note_frontend"]
+      origin:["*"]
 
 //dont put slash at url end
       // file:///Users/sanjaykardile/Downloads/Cors%20Cookies%20Summary.pdf //open in browser
