@@ -38,7 +38,7 @@ export async function getbyid(req, res) {
 export async function postall(req, res) {
   try {
     const { title, content } = req.body; //allows only {title,content} on body
-    const newNote = new Notes({ title, content });
+    const newNote = new Notes({ title, content });   //req.body
 
     await newNote.save();
     res.status(200).json({ message: "Note created sucessfuly" });

@@ -1,4 +1,6 @@
-// npm i @upstash/redis @upstash/ratelimit
+// npm i @upstash/redis
+
+// npm i @upstash/ratelimit
 
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
@@ -14,3 +16,19 @@ const ratelimit = new Ratelimit({
 });
 
 export default ratelimit;
+
+
+//Redis tracks:
+
+// . IP
+
+// . request count
+
+// . expiry time
+
+
+// Redis = a super-fast temporary database
+
+// Data is stored in memory (RAM), not on disk
+
+// Used when speed is more important than long-term storage
