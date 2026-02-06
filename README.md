@@ -5,6 +5,14 @@ Designed to be **frontend-agnostic** and return **JSON responses only**.
 
 ---
 
+---
+
+## 🌐 Live Website
+
+👉 https://darshankardil-create.github.io/mern_note_front/
+
+---
+
 ## ✨ Features
 
 - Create notes
