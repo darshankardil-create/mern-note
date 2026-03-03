@@ -12,7 +12,7 @@ router.get("/", getall);
 
 router.post("/", postall);
 
-router.delete("/:idd", deleteall); //whatever we put here we have to put it it req.param. ----> here <----
+router.delete("/:idd", deleteall); 
 
 router.put("/:idd", putall);
 

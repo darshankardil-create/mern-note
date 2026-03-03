@@ -10,34 +10,28 @@ import limite from "./middleware/ratelimiter.js";
 
 import cors from "cors";
 
-
-dotenv.config(); //After calling dotenv.config() in app.js you can access these variables anywhere in your Node.js code using process.env:
+dotenv.config(); 
 
 const app = express();
 
 const PORT = process.env.NEXT_PORT || 3000;
 
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3001",
+      "https://darshankardil-create.github.io/mern_note_front",
+    ],
+  }),
+);
 
+app.use(express.json());
 
-
-  app.use(
-    cors({                                                   
-      origin:["http://localhost:3001","https://darshankardil-create.github.io/mern_note_frontend"]
-
-//dont put slash at url end
-      // file:///Users/sanjaykardile/Downloads/Cors%20Cookies%20Summary.pdf //open in browser
-    })
-  );
-
-
-app.use(express.json()); // help us to get acces to req.body  // https://chatgpt.com/share/6933dd0a-503c-8005-b96e-b3c41e15aad5
-
-//app.use(express.json()) is called as middleware
 
 app.use((req, res, next) => {
   console.log(
-    `we just got req. meathod is ${req.method} and url is ${req.url} of req`
-  ); //compulsory must be placed after middleware to get info info about req in console
+    `we just got req. meathod is ${req.method} and url is ${req.url} of req`,
+  );
 
   next();
 });
@@ -46,12 +40,8 @@ app.use(limite);
 
 app.use("/api/notes", router);
 
-
-
 connectDB().then(() => {
   app.listen(PORT, () => {
     console.log("server:", PORT);
   });
 });
-
-//.env url is called enviroment variable

@@ -9,17 +9,7 @@ export const connectDB = async () => {
       "ERROR CONNECTING TO MONGO DB FAILED! FAILED! FAILED!",
       error
     );
-    process.exit(1); //exit with failiure
+    process.exit(1); 
   }
 };
 
-//user1
-//darshan@1965 || darshan%401965
-
-//                          try {
-
-//                                       }
-
-//                          catch (error) {
-
-//                                     }

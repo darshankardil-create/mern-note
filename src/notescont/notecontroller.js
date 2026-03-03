@@ -4,15 +4,13 @@ console.log(Notes);
 
 export async function getall(_, res) {
   try {
-    //find is a query of db
+   
 
-    const noteisthere = await Notes.find().sort({ createdAt: -1 }); // <-- get all notes from DB we can even specify specific note for exameple get note with Notes.find({ title: "Hello" })
-    res
-      .status(200)
-      .json({
-        noteisthere: noteisthere,
-        message: "successfully got note with id",
-      }); //sort( {createdAt: -1 } it just place latest note at first place and so on for putting latest note on last jsut do await Notes.find().sort( {createdAt: 1 } ) no minus
+    const noteisthere = await Notes.find().sort({ createdAt: -1 });
+    res.status(200).json({
+      noteisthere: noteisthere,
+      message: "successfully got note with id",
+    }); 
   } catch (error) {
     console.error("error in getall", error);
 
@@ -37,8 +35,8 @@ export async function getbyid(req, res) {
 
 export async function postall(req, res) {
   try {
-    const { title, content } = req.body; //allows only {title,content} on body
-    const newNote = new Notes({ title, content });   //req.body
+    const { title, content } = req.body; 
+    const newNote = new Notes({ title, content }); 
 
     await newNote.save();
     res.status(200).json({ message: "Note created sucessfuly" });
@@ -68,10 +66,9 @@ export const putall = async (req, res) => {
 
     const noteid = await Notes.findByIdAndUpdate(
       req.params.idd,
-      { title, content }, //req.params contains route parameters.
-      { new: true }
-    ); //<--- new true help us to get updated data at first req on put  otherwise we have to send put req 2 times to see updated data
-    //basically it aviod round trip of api and make it more efficient
+      { title, content },
+      { new: true },
+    );
 
     if (!noteid) {
       return res.status(404).json({ message: "id not found" });
@@ -79,7 +76,7 @@ export const putall = async (req, res) => {
 
     res
       .status(200)
-      .json({ message: "updated note successfully", noteid: noteid }); //only accept 1 obj
+      .json({ message: "updated note successfully", noteid: noteid }); 
   } catch (error) {
     console.error("erro in updating note controller", error);
     res.status(500).json({ message: "internal server error aha" });
