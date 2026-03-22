@@ -20,7 +20,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3001",
-      "https://darshankardil-create.github.io/mern_note_front",
+      "https://darshankardil-create.github.io",
     ],
   }),
 );
