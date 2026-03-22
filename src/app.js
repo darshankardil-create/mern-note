@@ -36,6 +36,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.set("trust proxy", 1);
 app.use(limite);
 
 app.use("/api/notes", router);
